@@ -3,7 +3,7 @@
 1. Use Windows.EVTX.Hayabusa artifact to copy all relevant evtx files from all endpoints.
 2. Manually download Results from VR which should give the H.xxx.zip file.
 4. For convienence `ready4hayabusa.py` can be used to merge all the evtx files into one folder to only fun hayabusa once. If you don't want to use `ready4hayabusa.py` you can run Hayabusa against each clients Windows evtx logs folder.
-4. To use `ready4hayabusa.py`: Have folder containg both `H.xxx.zip` and `ready4hayabusa.py`. 
+4. To use `ready4hayabusa.py`: Have folder containg both `H.xxx.zip` and `ready4hayabusa.py`. Rename `zippy` variable in script to your H.xxx.zip. 
 3. Run `ready4hayabusa.py`: this unzips/extracts the evtx from H.xxx.zip from all clients into a `results` folder. 
 4. Afterwards you run hayabusa against those evtx with: `hayabusa.exe -d ./results/ -r /hayabusa/rules/sigma/ -o ./results.csv`
 
@@ -99,18 +99,16 @@ import glob
 import shutil
 
 # Takes VR results and puts all the evtx into one folder
-
 # folder Structure Should be:
 # H.xxxxxx.zip
 # ready4hayabusa.py 
 
 # Must rename variable zippy 
 
-
 results_folder = "./results"
 unzipped_folder = "./unzipped"
 
-###############################
+######## RENAME #######################
 zippy = "H.xxx.zip"
 ###############################
 
@@ -136,7 +134,6 @@ def get_clients():
     x = os.listdir(path)
     return x
 
-
 # Make folder for results
 make_results_folder(results_folder)
 
@@ -145,7 +142,6 @@ unzipit(zippy, unzipped_folder)
 
 # Get list of client hostnames
 clients = get_clients()
-
 
 for client in clients:
     print('getting paths')
