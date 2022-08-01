@@ -5,7 +5,7 @@
 4. For convienence `ready4hayabusa.py` can be used to merge all the evtx files into one folder to only fun hayabusa once. If you don't want to use `ready4hayabusa.py` you can run Hayabusa against each clients Windows evtx logs folder.
 4. To use `ready4hayabusa.py`: Have folder containg both `H.xxx.zip` and `ready4hayabusa.py`. Rename `zippy` variable in script to your H.xxx.zip. 
 3. Run `ready4hayabusa.py`: this unzips/extracts the evtx from H.xxx.zip from all clients into a `results` folder. 
-4. Afterwards you run hayabusa against those evtx with: `hayabusa.exe -d ./results/ -r /hayabusa/rules/sigma/ -o ./results.csv`
+4. Afterwards you run hayabusa against those evtx with: `hayabusa.exe -d ./results/ -r /hayabusa/rules/sigma/ -o ./results.csv`. That `results` folder should only contain .evtx files from all the hosts. No subfolders or other files.
 
 # Gather EVTX For Hayabusa Artifact
 ```yml
